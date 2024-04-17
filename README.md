@@ -16,4 +16,4 @@
 * corectrl - for productive work
 
 # Working environment
-<img src="img/environment.png" alt="environment" />
+<img src="environment" alt="environment" />
