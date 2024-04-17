@@ -48,30 +48,14 @@ bindsym XF86Calculator exec gnome-calculator
 # or left-clicking anywhere into the window while holding the floating modifier.
 #tiling_drag modifier titlebar
 
-# start a terminal
-bindsym $mod+Return exec alacritty
-
-
 #no border title
 default_border pixel
-
-# kill focused window
-bindsym $mod+q kill
-
-# start rofi (a program launcher)
-bindsym $mod+d exec --no-startup-id rofi -theme glue_pro_blue -font "hack 13" -show run
-
-#chrome bindsym
-bindsym XF86HomePage exec thorium-browser
-
-#setxkbmap keyboard
-exec --no-startup-id setxkbmap us,ru -option 'grp:alt_shift_toggle'
 
 #nitrogen background
 #exec --no-startup-id nitrogen --restore; sleep 1; comptom -b
 
 #margins between windows
-gaps inner 10
+gaps inner 0
 for_window [class="^.*"] border pixel 2
 
 # Window color settings
@@ -204,23 +188,14 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-exec --no-startup-id ~/.config/polybar/launch.sh
+######################################################################
+# custom bindsyms
 
-exec --no-startup-id blueman-applet
+# start a terminal
+bindsym $mod+Return exec alacritty
 
 #lock screen
-bindsym $mod+l exec sh lock.sh
-
-#picom
-#screen_lock for screen photo
-exec --no-startup-id picom
-
-#screen_sky_lock
-
-#light for screen
-exec --no-startup-id brightnessctl set 100%
+bindsym $mod+l exec i3lock
 
 #screenshot
 bindsym $mod+p exec coreshot
@@ -232,19 +207,50 @@ bindsym $mod+F1 exec pavucontrol
 
 bindsym $mod+F2 exec blueman-manager
 
-bindsym $mod+F3 exec google-chrome-stable
-
-#monitors' settings
-exec --no-startup-id ~/screen_scripts.sh
-exec --no-startup-id xrdb -merge ~/.Xresources
-
 bindsym ctrl+shift+o exec okular
 
 bindsym $mod+shift+t exec telegram-desktop
 
-##################################
-######autostart of programs#######
-##################################
+# kill focused window
+bindsym $mod+q kill
 
-#terminal
-exec --no-startup-id alacritty 
+# start rofi (a program launcher)
+bindsym $mod+d exec --no-startup-id rofi -theme glue_pro_blue -font "hack 13" -show-icons -show run
+
+# chrome bindsym
+bindsym XF86HomePage exec google-chrome-stable
+
+#
+######################################################################
+
+######################################################################
+# custom execs
+
+#setxkbmap keyboard
+exec --no-startup-id setxkbmap us,ru -option 'grp:alt_shift_toggle'
+
+# monitors' settings
+exec --no-startup-id ~/screen_scripts.sh
+
+# bluetooth
+exec --no-startup-id blueman-applet
+
+#light for screen
+exec --no-startup-id brightnessctl set 100%
+
+# cursor set
+exec --no-startup-id xrdb -merge ~/.Xresources
+
+# terminal
+exec --no-startup-id alacritty
+
+# time for enegry of monitor
+exec --no-startup-id xset s off && xset dpms 0 0 0  
+
+bindsym $mod+Tab exec window_switching.bin
+
+# performance work
+exec --no-startup-id sudo corectrl & exit 0
+
+#
+######################################################################

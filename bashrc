@@ -7,7 +7,9 @@ output=$(python battery.py)
 [[ $- != *i* ]] && return
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
+
 PS1="[ \[\e[35m\]B:$output\[\e[0m\] \[\e[93m\]\A\[\e[0m\] ]:\[\e[94m\]\w\[\e[0m\] \[\e[32m\]\$ \[\e[0m\]"
+
 alias upd='sudo pacman -Syu'
 alias delfile='sudo rm -r'
 alias delpack='sudo pacman -Rscun'
