@@ -34,16 +34,14 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 
 # Use pactl to adjust volume in PulseAudio.
-set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% & exec volume.bin 
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% & exec volume.bin
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle & exec volume.bin
+
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-
-bindsym XF86Calculator exec gnome-calculator
 # move tiling windows via drag & drop by left-clicking into the title bar,
 # or left-clicking anywhere into the window while holding the floating modifier.
 #tiling_drag modifier titlebar
@@ -220,6 +218,56 @@ bindsym $mod+d exec --no-startup-id rofi -theme glue_pro_blue -font "hack 13" -s
 # chrome bindsym
 bindsym XF86HomePage exec google-chrome-stable
 
+bindsym XF86Calculator exec gnome-calculator
+
+bindsym $mod+Tab exec window_switching.bin
+
+bindsym 0xff9c exec code #1
+
+bindsym 0xff99 exec arduino-ide #2
+
+bindsym 0xff96 exec figma-linux #4
+
+bindsym 0xff9d exec telegram-desktop #5
+
+bindsym 0xff98 exec alacritty #6
+
+bindsym 0xff95 exec okular #7
+
+bindsym 0xffad exec --no-startup-id /home/watoc/.config/restart_bindsym.sh
+
+bindsym 0x1008ff03 exec brightnessctl set 100-
+
+bindsym 0x1008ff02 exec brightnessctl set +100
+
+## NUMPAD
+## 0xffaf /
+## 0xffaa *
+## 0xffad -
+## 0xffab +
+## 0xff8d enter
+## 0xff9f .
+## 0xff9e 0
+
+## 0 - 0xff9e
+## 1 - 0xff9c
+## 2 - 0xff99
+## 3 - 0xff9b
+## 4 - 0xff96
+## 5 - 0xff9d
+## 6 - 0xff98
+## 7 - 0xff95
+## 8 - 0xff97
+## 9 - 0xff9a
+
+## f5 - 0x1008ff03
+## f6 - 0x1008ff02
+## f7 - 0x1008ff59
+## f8 - 0x1008ff95
+## f9 - 0x1008ff81
+## f10 - 0x1008ff1b
+## f11 - 0x1008ff4a
+## f12 - 0x1008ff5d
 #
 ######################################################################
 
@@ -247,10 +295,12 @@ exec --no-startup-id alacritty
 # time for enegry of monitor
 exec --no-startup-id xset s off && xset dpms 0 0 0  
 
-bindsym $mod+Tab exec window_switching.bin
-
 # performance work
 exec --no-startup-id sudo corectrl & exit 0
 
 #
 ######################################################################
+
+for_window [class="Tk"] floating enable
+for_window [class="todo-app"] floating enable
+for_window [class="main.py"] floating enable
