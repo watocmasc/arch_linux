@@ -236,6 +236,8 @@ bindsym 0xff95 exec okular #7
 
 bindsym 0xffad exec --no-startup-id /home/watoc/.config/restart_bindsym.sh
 
+bindsym 0xffaa exec --no-startup-id /home/watoc/.config/shutdown_bindsym.sh
+
 bindsym 0x1008ff03 exec brightnessctl set 100-
 
 bindsym 0x1008ff02 exec brightnessctl set +100
