@@ -2,7 +2,7 @@
 # ~/.bashrc
 #
 
-output=$(python battery.py)
+output=$(python ~/.config/battery.py)
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 alias ls='ls --color=auto'
@@ -22,4 +22,5 @@ alias mak='makepkg -si'
 alias grubach='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 alias packs='pacman -Qe'
 alias ard='~/arduino-ide/arduino-ide & exit 0'
-alias build='~/build.sh'
+alias build='~/.config/build.sh'
+alias ardusb='sudo chmod 777 /dev/ttyUSB*'
