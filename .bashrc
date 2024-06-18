@@ -24,3 +24,4 @@ alias packs='pacman -Qe'
 alias ard='~/arduino-ide/arduino-ide & exit 0'
 alias build='~/.config/build.sh'
 alias ardusb='sudo chmod 777 /dev/ttyUSB*'
+alias files='ls -1 | wc -l' # how many files in my directory
