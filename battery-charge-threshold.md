@@ -3,15 +3,17 @@
 
 `sudo vim /etc/systemd/system/<title>.service` - creating a battery service
 
-//in VIM
-```[Unit]
+### //in VIM \n
+```
+[Unit]
 Description=Set the battery charge thresholdAfter=multi-user.target
 StartLimitBurst=0
 [Service]
 Type=oneshotRestart=on-failure
 ExecStart=/bin/bash -c 'echo CHARGE_STOP_THRESHOLD > /sys/class/power_supply/BATTERY_NAME/charge_control_end_threshold'
 [Install]
-WantedBy=multi-user.target```
+WantedBy=multi-user.target
+```
 
 // BATTERY_NAME - battery name
 // CHARGE_STOP_THRESHOLD - The required charge level is 60 or 80
