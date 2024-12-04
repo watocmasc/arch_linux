@@ -9,11 +9,12 @@
 * arandr - setting up the screen
 * base-devel
 * git
-* yay - https://aur.archlinux.org/yay-git.git
+* yay 
 * pulseaudio, pavucontrol - sound
 * bluez, bluez-utils, pulseaudio-bluetooth, blueman - bluetooth
 * brightsetctl - for screen brightness
-* corectrl - for productive work
+* tuned 
 
-# Working environment
-<img src="environment" alt="environment" />
+groups:
+    uucp
+    dialout
