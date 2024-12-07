@@ -18,3 +18,5 @@
 groups:
     uucp
     dialout
+
+woeusb - to create a bootable USB flash drive
