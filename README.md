@@ -12,7 +12,7 @@
 * yay 
 * pulseaudio, pavucontrol - sound
 * bluez, bluez-utils, pulseaudio-bluetooth, blueman - bluetooth
-* brightsetctl - for screen brightness
+* brightnessctl - for screen brightness
 * tuned 
 
 groups:
