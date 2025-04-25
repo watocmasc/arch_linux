@@ -312,6 +312,10 @@ exec --no-startup-id xset s off && xset dpms 0 0 0
 #exec --no-startup-id google-chrome-stable
 
 exec --no-startup-id tuned-adm profile accelerator-performance
+
+bindsym $mod + Ctrl + s exec --no-startup-id systemctl poweroff
+
+bindsym $mod + Ctrl + r exec --no-startup-id systemctl reboot
 #exec --no-startup-id ~/obsidian/AppRun
 #
 ######################################################################
